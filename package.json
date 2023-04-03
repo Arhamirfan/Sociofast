@@ -3,14 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "env-cmd -f .env.local next dev",
+    "build": "env-cmd -f .env.local next build",
+    "start": "env-cmd -f .env.local next start",
+    "build:dev": "env-cmd -f .env.dev next build",
+    "start:dev": "env-cmd -f .env.dev next start",
+    "build:stage": "env-cmd -f .env.stage next build",
+    "start:stage": "env-cmd -f .env.stage next start",
+    "build:local": "env-cmd -f .env.local next build",
+    "start:local": "env-cmd -f .env.local next start",
+    "build:prod": "env-cmd -f .env.prod next build",
+    "start:prod": "env-cmd -f .env.prod next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "env-cmd": "^10.1.0",
+    "formik": "^2.2.9",
     "next": "13.2.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.0",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.1",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.2",
+    "sweetalert2": "^11.7.3",
+    "yup": "^1.0.2"
   }
 }
