@@ -1,5 +1,4 @@
 .login {
-    margin-top: 50px;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -18,6 +17,9 @@
 
 .loginForm {
     padding: 50px;
+    display: block;
+    flex-direction: column;
+    align-self: center;
 }
 
 .loginForm h2 {
@@ -42,14 +44,4 @@
     display: block;
     font-size: 14px;
     color: #dc3545;
-}
-
-.btn-primary {
-    border-radius: 10px;
-    border: none;
-    background-color: #007bff;
-}
-
-.btn-primary:hover {
-    background-color: #0069d9;
 }

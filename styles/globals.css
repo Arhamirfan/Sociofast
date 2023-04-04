@@ -1,3 +1,13 @@
+.mainScreen {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  /* overflow: auto; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .fullScreenHome {
   min-height: 100vh !important;
 }
@@ -24,6 +34,9 @@
   max-height: 100%;
 }
 
+.circular-radius {
+  border-radius: 50px !important;
+}
 
 .grey-background {
   background-color: #f0f2f5;

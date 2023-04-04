@@ -1,7 +1,14 @@
 import Head from 'next/head'
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import routePaths from '@/src/routes/path';
 import Icon from "../public/assets/images/sociofast.ico";
 
 export default function Home() {
+  const router = useRouter();
+  useEffect(() => {
+    router.replace(routePaths.login);
+  }, []);
   return (
     <>
       <Head>
@@ -11,7 +18,6 @@ export default function Home() {
         <link rel="icon" href={Icon.src} type="image/x-icon"></link>
       </Head>
       <main >
-        <p>Social fast Website</p>
       </main>
     </>
   )
