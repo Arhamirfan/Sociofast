@@ -1,4 +1,4 @@
-import '@/styles/globals.css'
+import "./../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.css";
 import store from "../src/store/index"
 import { Provider } from 'react-redux'

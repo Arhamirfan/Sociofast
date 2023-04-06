@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useRouter } from "next/router";
 import routePaths from "@/src/routes/path";
+import AdminDashboard from '@/src/pageComponents/dashboard/AdminDashboard';
 const index = () => {
     let router = useRouter();
     useEffect(() => {
@@ -13,9 +14,11 @@ const index = () => {
 
     return (
         <>
-            <div>
-                <h2>Dashboard</h2>
-            </div>
+            <AdminDashboard page="dashboard">
+                <div>
+                    <h2>Admin Dashboard</h2>
+                </div>
+            </AdminDashboard>
         </>
     )
 }
