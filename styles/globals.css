@@ -1,3 +1,7 @@
+body {
+  background: #f0f2f5 !important;
+}
+
 .mainScreen {
   width: 100%;
   min-height: 100vh;
@@ -74,6 +78,7 @@
 .admin-content {
   flex: 1;
   padding: 20px;
+  background: #f0f2f5;
 }
 
 /* ************************************************************* */
@@ -82,7 +87,11 @@
 }
 
 .grey-background {
-  background-color: #f0f2f5;
+  background-color: #7b809a;
+}
+
+.grey {
+  color: #344767;
 }
 
 .font {

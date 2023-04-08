@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from "next/router";
 import routePaths from "@/src/routes/path";
 import AdminDashboard from '@/src/pageComponents/dashboard/AdminDashboard';
+import InfluencerStatus from '@/src/pageComponents/dashboard/influencerStatus';
 const index = () => {
     let router = useRouter();
     useEffect(() => {
@@ -17,6 +18,7 @@ const index = () => {
             <AdminDashboard page="dashboard">
                 <div>
                     <h2>Admin Dashboard</h2>
+                    <InfluencerStatus />
                 </div>
             </AdminDashboard>
         </>
