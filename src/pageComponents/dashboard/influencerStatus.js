@@ -19,7 +19,6 @@ const InfluencerStatus = () => {
       oneTimeUsed = true;
       influencerApi.getDashboardDataCount().then((result) => {
         console.log('result', result);
-        toast.success('data fetched')
         if (result && result?.status == 200) {
           setData(result.data);
         } else {
@@ -41,7 +40,7 @@ const InfluencerStatus = () => {
 
   return (
     <>
-      <div className='p-4'>
+      <div className='p-4 font'>
 
         <h4 className='grey largeBoldText boldText'>Overall status</h4>
         {!loading ? <>

@@ -12,8 +12,8 @@ const index = () => {
         <>
             <AdminDashboard page="settings">
                 <div>
-                    <h2>Settings Page</h2>
-                    <div className='pt-4 px-2'>
+                    <h2 className='boldText'>Settings Page</h2>
+                    <div className='pt-4 px-2 font'>
                         <div className="card fullWidth">
                             <div className="card-body ">
                                 <h5 className="card-title">Are you sure you want to logout?</h5>
