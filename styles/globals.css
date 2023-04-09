@@ -148,6 +148,40 @@ body {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
 }
 
+/* ************************* influencer filter tags ************************************ */
+.tag-input-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border: 1px solid #ced4da;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  background-color: #e2e3e5;
+  color: #212529;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.tag span {
+  margin-right: 5px;
+}
+
+.tag button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #212529;
+  margin-left: 5px;
+  font-size: 14px;
+}
+
 /* ************************************************************* */
 .circular-radius {
   border-radius: 50px !important;

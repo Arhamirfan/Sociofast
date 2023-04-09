@@ -4,16 +4,14 @@ import { toast } from 'react-hot-toast';
 import Spinner from '@/src/components/spinner';
 import Card from '@/src/components/card';
 import Table from './influencerTable';
+import TableDataFilter from '@/src/components/modals/tableDataFilter';
 const InfluencerMain = () => {
-    const staticData = [
-        { name: 'John', age: 25, profession: 'Developer' }
-    ];
-    const visibleFields = ['Name', 'Age', 'profession'];
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState();
     const [tableData, setTableData] = useState();
     const [queryParams, setQueryParams] = useState("")
     const [columnData, setColumnData] = useState([]);
+    let [showFilterModal, setShowFilterModal] = useState(false);
     const [columnRemovedData, setColumnRemovedData] = useState([]);
     const [error, setError] = useState("")
     let oneTimeUsed = false;
@@ -95,11 +93,11 @@ const InfluencerMain = () => {
                 <div className='d-flex flex-column flex-sm-row justify-content-between'>
                     <h2>Influencer</h2>
                     <div>
-                        <button className='btn btn-danger me-2'>Apply filters</button>
+                        <button className='btn btn-danger me-2' onClick={() => { setShowFilterModal(true) }}>Apply filters</button>
                         <button className='btn btn-primary'>Create new record</button>
                     </div>
                 </div>
-
+                <TableDataFilter show={showFilterModal} setShowFilterModal={setShowFilterModal} getInfluencerCount={getInfluencerCount} onHide={() => setShowFilterModal(false)} />
                 <div className="card fullWidth my-4">
                     <div className="card-body ">
                         <div className='normalLgText semibold'>Selected influencer values</div>
