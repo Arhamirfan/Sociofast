@@ -5,6 +5,7 @@ import routePaths from "@/src/routes/path";
 import AdminDashboard from '@/src/pageComponents/dashboard/AdminDashboard';
 import InfluencerStatus from '@/src/pageComponents/dashboard/influencerStatus';
 import Icon from "../../public/assets/images/sociofast.ico";
+import Head from 'next/head';
 const index = () => {
     let router = useRouter();
     useEffect(() => {
