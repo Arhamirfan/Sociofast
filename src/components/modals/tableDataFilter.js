@@ -7,6 +7,7 @@ import ReactTags from 'react-tag-autocomplete';
 import Chips from '../chips';
 const filterSchema = yup.object().shape({
     name: yup.string(),
+    gender: yup.string(),
     followerFrom: yup.number().integer('follower from value must be an integer').moreThan(0, 'Value should be positive'),
     followerTo: yup.number().integer('Follower to value must be an integer').moreThan(0, 'Value should be positive'),
     location: yup.array().of(yup.string().required()),
@@ -26,6 +27,7 @@ const TableDataFilter = (props) => {
     const [platformInputValue, setPlatformInputValue] = useState('');
     let initialValues = {
         name: "",
+        gender: "",
         followerFrom: 0,
         followerTo: 0,
         location: [],
@@ -55,7 +57,7 @@ const TableDataFilter = (props) => {
                             onSubmit={(values, { resetForm, setSubmitting }) => {
                                 console.log('filterValues:', values);
                                 try {
-                                    const requiredFields = ['name', 'followerFrom', 'followerTo'];
+                                    const requiredFields = ['name', 'followerFrom', 'followerTo', 'gender'];
                                     const isEmpty = requiredFields.every((field) => !values[field]);
                                     console.log('isEmpty:', isEmpty);
                                     if (isEmpty) {
@@ -68,6 +70,9 @@ const TableDataFilter = (props) => {
                                     if (values.name) {
                                         params.append('name', values.name);
                                     }
+                                    if (values.gender) {
+                                        params.append('gender', values.gender);
+                                    }
                                     if (values.followerFrom && values.followerTo) {
                                         if (values.followerFrom > values.followerTo) {
                                             throw new Error('Follower To value must be less than follower from value');
@@ -76,6 +81,27 @@ const TableDataFilter = (props) => {
                                         }
                                         const followersValue = `${values.followerFrom},${values.followerTo}`;
                                         params.append('followers', followersValue);
+                                    }
+                                    if (values.category.length > 0) {
+                                        values.category.forEach(value => {
+                                            params.append('category', value);
+                                        });
+                                    }
+                                    if (values.location.length > 0) {
+                                        values.location.forEach(value => {
+                                            params.append('location', value);
+                                        });
+
+                                    }
+                                    if (values.platform.length > 0) {
+                                        values.platform.forEach(value => {
+                                            params.append('platform', value);
+                                        });
+                                    }
+                                    if (values.profession.length > 0) {
+                                        values.profession.forEach(value => {
+                                            params.append('profession', value);
+                                        });
                                     }
                                     let queryString = params.toString().replace('%2C', ',');
                                     let query = '?' + queryString;
@@ -136,6 +162,21 @@ const TableDataFilter = (props) => {
                                                     placeholder="100" />
                                                 <label htmlFor="floatingInput">followerTo</label>
                                                 <ErrorMessage component="small" name="followerTo" className="text-danger " />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='row'>
+                                        <div className="col-12">
+                                            <div className="form-floating my-3">
+                                                <input type="text"
+                                                    onChange={handleChange}
+                                                    className="form-control"
+                                                    id="gender"
+                                                    name="gender"
+                                                    value={values.gender}
+                                                    placeholder="Male" />
+                                                <label htmlFor="floatingInput">gender</label>
+                                                <ErrorMessage component="small" name="gender" className="text-danger " />
                                             </div>
                                         </div>
                                     </div>
