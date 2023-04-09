@@ -5,7 +5,7 @@ let influencerApi = {
     getAllInfluencer: async (data) => {
         return await axios({
             url: '/getAllInfluencer' + data,
-            method: 'post'
+            method: 'get'
         })
     },
     getDashboardDataCount: async (data) => {
