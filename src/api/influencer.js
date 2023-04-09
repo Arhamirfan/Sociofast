@@ -2,9 +2,9 @@ import axios from "../utils/axios";
 
 
 let influencerApi = {
-    getAllInfluencer: async (data) => {
+    getInfluencerByFilter: async (data) => {
         return await axios({
-            url: '/getAllInfluencer' + data,
+            url: '/getInfluencerByFilter' + data,
             method: 'get'
         })
     },
@@ -17,10 +17,6 @@ let influencerApi = {
             //   },
         })
     },
-    // getInfluencerCounter: () => axios({
-    //     url: '/getDashBoardCounterData',
-    //     method: 'get',
-    // })
 }
 
 export default influencerApi

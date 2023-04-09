@@ -2,6 +2,7 @@ import React from 'react'
 import AdminDashboard from '@/src/pageComponents/dashboard/AdminDashboard'
 import Head from 'next/head'
 import Icon from "../../public/assets/images/sociofast.ico";
+import InfluencerMain from '@/src/pageComponents/influencer/influencerMain';
 
 const index = () => {
     return (
@@ -14,7 +15,8 @@ const index = () => {
             </Head>
             <AdminDashboard page="influencer">
                 <div>
-                    <h2 className='boldText'>Influencer Page</h2>
+                    <h2 className='boldText'>Influencer Record</h2>
+                    <InfluencerMain />
                 </div>
             </AdminDashboard>
         </>

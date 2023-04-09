@@ -15,7 +15,7 @@ const AdminDashboard = ({ page, children }) => {
 
     return (
         <div className="admin-dashboard-container p-3 font">
-            <div className="admin-sidebar rounded">
+            <div className="admin-sidebar rounded hiddenForSmallScreen">
                 <div className='text-center'>
                     <div className='f-flex flex-row font'>
                         <img src={Logo.src} height={50} className='coverImg' />
