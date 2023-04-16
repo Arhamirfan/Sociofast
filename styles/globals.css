@@ -149,6 +149,11 @@ body {
 }
 
 /* ************************* influencer filter tags ************************************ */
+.scrolling {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
 .tag-input-container {
   display: flex;
   flex-wrap: wrap;

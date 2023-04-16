@@ -93,7 +93,7 @@ const InfluencerMain = () => {
                 <div className='d-flex flex-column flex-sm-row justify-content-between'>
                     <h2>Influencer</h2>
                     <div>
-                        <button className='btn btn-danger me-2' onClick={() => { setShowFilterModal(true) }}>Apply filters</button>
+                        <button className='btn btn-danger me-2' onClick={() => { setShowFilterModal(true) }}>filters</button>
                         <button className='btn btn-primary'>Create new record</button>
                     </div>
                 </div>
