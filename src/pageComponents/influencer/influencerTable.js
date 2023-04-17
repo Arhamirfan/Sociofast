@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { useTable } from 'react-table';
-
+import Tick from "../../../public/assets/images/tick.png"
+import Cross from "../../../public/assets/images/cross.png"
 function Table({ data, visibleFields }) {
     const columns = useMemo(() => {
         // If visibleFields is not specified, default to showing only the "name" field
@@ -17,6 +18,14 @@ function Table({ data, visibleFields }) {
         return visibleFields.map((field) => ({
             Header: field,
             accessor: field.toLowerCase(),
+            // cell: ({ value }) => {
+            //     console.log('field', field, ', value', value)
+            //     return field.toLowerCase() === 'double_checked' ? (
+            //         value == "true" ? (
+            //             <img src={Tick.src} alt="Checked" />) : (
+            //             <img src={cross.src} alt="Not Checked" />
+            //         )) : (value);
+            // }
         }));
     }, [visibleFields]);
 
