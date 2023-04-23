@@ -32,7 +32,7 @@ const InfluencerMain = () => {
                         setData(result?.data?.content);
                         result?.data?.content?.map((values) => {
                             let { id, name, profileUrl, description, followers, likes, comments, engagement, shares, gender, double_checked, profession, location, category, platform, type } = values;
-                            tableFilteredData.push({ id, name, followers, likes, comments, engagement, shares, gender, profession: profession.professionName, location: location.locationName, category: category.categoryName, platform: platform.platformName, type: type.typeName, double_checked: double_checked.toString() })
+                            tableFilteredData.push({ id, profileurl: profileUrl, name, followers, likes, comments, engagement, shares, gender, profession: profession.professionName, location: location.locationName, category: category.categoryName, platform: platform.platformName, type: type.typeName, double_checked: double_checked.toString() })
                         })
                         console.log("🚀 ~ influencerApi.getInfluencerByFilter ~ tableFilteredData:", tableFilteredData)
                         setTableData(tableFilteredData);
@@ -41,7 +41,7 @@ const InfluencerMain = () => {
                         console.log("🚀 ~ file: influencerMain.js:46 ~ influencerApi.getInfluencerByFilter ~ keys:", keys)
                         // const tableColumnData = keys.filter(key => typeof firstIndexData[key] !== 'object');
                         // console.log("🚀 ~ file: influencerMain.js:48 ~ influencerApi.getInfluencerByFilter ~ tableColumnData:", tableColumnData)
-                        const modifiedArray = keys.filter(item => item !== "profileUrl" && item !== "description");
+                        const modifiedArray = keys.filter(item => item !== "description");
                         console.log("🚀 ~ influencerApi.getInfluencerByFilter ~ tableColumnData:", modifiedArray)
                         setColumnData(modifiedArray);
                     }
@@ -94,7 +94,7 @@ const InfluencerMain = () => {
                         <button className='btn btn-primary'>Create new record</button>
                     </div>
                 </div>
-                <TableDataFilter show={showFilterModal} setShowFilterModal={setShowFilterModal} getInfluencerCount={getInfluencerCount} onHide={() => setShowFilterModal(false)} />
+                <TableDataFilter setColumnRemovedData={setColumnRemovedData} show={showFilterModal} setShowFilterModal={setShowFilterModal} getInfluencerCount={getInfluencerCount} onHide={() => setShowFilterModal(false)} />
                 <div className="card fullWidth my-4">
                     <div className="card-body ">
                         <div className='normalLgText semibold'>Visible</div>

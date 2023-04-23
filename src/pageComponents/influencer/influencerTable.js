@@ -57,7 +57,7 @@ function Table({ data, visibleFields }) {
 
     return (
         <div className="table-responsive">
-            <table {...getTableProps()} className="table table-striped">
+            <table {...getTableProps()} className="table table-striped" style={{ maxWidth: '100%' }}>
                 <thead>
                     {headerGroups.map((headerGroup) => (
                         <tr {...headerGroup.getHeaderGroupProps()}>

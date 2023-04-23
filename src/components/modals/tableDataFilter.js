@@ -78,7 +78,7 @@ const TableDataFilter = (props) => {
                     <Modal.Title >Filter</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="font scrolling">
+                    <div className="font ">
                         <Formik
                             initialValues={initialValues}
                             validationSchema={filterSchema}
@@ -187,6 +187,7 @@ const TableDataFilter = (props) => {
                                     setShareTags([]);
                                     setEngagementTags([]);
                                     setTypeTags([]);
+                                    props.setColumnRemovedData([]);
                                     props.getInfluencerCount(query);
                                     resetForm();
                                 } catch (error) {
@@ -197,65 +198,66 @@ const TableDataFilter = (props) => {
                             {({ values, handleSubmit, handleChange, errors, touched, setFieldValue }) => (
                                 <Form>
                                     {/* {JSON.stringify(values)} */}
-                                    <div className='row'>
-                                        <div className="col-12">
-                                            <div className="form-floating my-3">
-                                                <input type="text"
-                                                    onChange={handleChange}
-                                                    className="form-control"
-                                                    id="name"
-                                                    name="name"
-                                                    value={values.name}
-                                                    placeholder="John Doe" />
-                                                <label htmlFor="floatingInput">Name</label>
-                                                <ErrorMessage component="small" name="name" className="text-danger " />
+                                    <div className="scrolling">
+                                        <div className='row'>
+                                            <div className="col-12">
+                                                <div className="form-floating my-3">
+                                                    <input type="text"
+                                                        onChange={handleChange}
+                                                        className="form-control"
+                                                        id="name"
+                                                        name="name"
+                                                        value={values.name}
+                                                        placeholder="John Doe" />
+                                                    <label htmlFor="floatingInput">Name</label>
+                                                    <ErrorMessage component="small" name="name" className="text-danger " />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='row'>
-                                        <div className="col-12">
-                                            <div className="form-floating my-3">
-                                                <input type="text"
-                                                    onChange={handleChange}
-                                                    className="form-control"
-                                                    id="description"
-                                                    name="description"
-                                                    value={values.description}
-                                                    placeholder="This is description." />
-                                                <label htmlFor="floatingInput">description</label>
-                                                <ErrorMessage component="small" name="description" className="text-danger " />
+                                        <div className='row'>
+                                            <div className="col-12">
+                                                <div className="form-floating my-3">
+                                                    <input type="text"
+                                                        onChange={handleChange}
+                                                        className="form-control"
+                                                        id="description"
+                                                        name="description"
+                                                        value={values.description}
+                                                        placeholder="This is description." />
+                                                    <label htmlFor="floatingInput">description</label>
+                                                    <ErrorMessage component="small" name="description" className="text-danger " />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='row '>
-                                        <div className="col-6">
-                                            <div className="form-floating my-3">
-                                                <input type="number"
-                                                    onChange={handleChange}
-                                                    className="form-control"
-                                                    id="followerFrom"
-                                                    name="followerFrom"
-                                                    value={values.followerFrom}
-                                                    placeholder="0" />
-                                                <label htmlFor="floatingInput">followerFrom</label>
-                                                <ErrorMessage component="small" name="followerFrom" className="text-danger " />
+                                        <div className='row '>
+                                            <div className="col-6">
+                                                <div className="form-floating my-3">
+                                                    <input type="number"
+                                                        onChange={handleChange}
+                                                        className="form-control"
+                                                        id="followerFrom"
+                                                        name="followerFrom"
+                                                        value={values.followerFrom}
+                                                        placeholder="0" />
+                                                    <label htmlFor="floatingInput">followerFrom</label>
+                                                    <ErrorMessage component="small" name="followerFrom" className="text-danger " />
+                                                </div>
+                                            </div>
+                                            <div className="col-6">
+                                                <div className="form-floating my-3">
+                                                    <input type="number"
+                                                        onChange={handleChange}
+                                                        className="form-control"
+                                                        id="followerTo"
+                                                        name="followerTo"
+                                                        value={values.followerTo}
+                                                        placeholder="100" />
+                                                    <label htmlFor="floatingInput">followerTo</label>
+                                                    <ErrorMessage component="small" name="followerTo" className="text-danger " />
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className="col-6">
-                                            <div className="form-floating my-3">
-                                                <input type="number"
-                                                    onChange={handleChange}
-                                                    className="form-control"
-                                                    id="followerTo"
-                                                    name="followerTo"
-                                                    value={values.followerTo}
-                                                    placeholder="100" />
-                                                <label htmlFor="floatingInput">followerTo</label>
-                                                <ErrorMessage component="small" name="followerTo" className="text-danger " />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* <div className='row'>
+                                        {/* <div className='row'>
                                         <div className="col-12">
                                             <div className="form-floating my-3">
                                                 <input type="text"
@@ -270,51 +272,53 @@ const TableDataFilter = (props) => {
                                             </div>
                                         </div>
                                     </div> */}
-                                    <div className='row'>
+                                        <div className='row'>
+                                            <div className="col-12">
+                                                <div className="form-floating my-3">
+                                                    <select
+                                                        onChange={handleChange}
+                                                        className="form-control"
+                                                        id="gender"
+                                                        name="gender"
+                                                        value={values.gender}
+                                                    >
+                                                        <option value="">Select gender</option>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                    </select>
+                                                    <label htmlFor="gender">Gender</label>
+                                                    <ErrorMessage component="small" name="gender" className="text-danger" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <Chips labelled={"location"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setLocationTags} platformTags={locationTags} platformInputValue={locationInputValue} setPlatformInputValue={setLocationInputValue} />
+                                        <Chips labelled={"platform"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setPlatformTags} platformTags={platformTags} platformInputValue={platformInputValue} setPlatformInputValue={setPlatformInputValue} />
+
+                                        <Chips labelled={"profession"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setProfessionTags} platformTags={professionTags} platformInputValue={professionInputValue} setPlatformInputValue={setProfessionInputValue} />
+                                        <Chips labelled={"category"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setCategoryTags} platformTags={categoryTags} platformInputValue={categoryInputValue} setPlatformInputValue={setCategoryInputValue} />
+
+                                        <Chips labelled={"like"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setLikeTags} platformTags={likeTags} platformInputValue={likeInputValue} setPlatformInputValue={setLikeInputValue} />
+                                        <Chips labelled={"comment"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setCommentTags} platformTags={commentTags} platformInputValue={commentInputValue} setPlatformInputValue={setCommentInputValue} />
+                                        <Chips labelled={"share"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setShareTags} platformTags={shareTags} platformInputValue={shareInputValue} setPlatformInputValue={setShareInputValue} />
+
+                                        <Chips labelled={"engagement"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setEngagementTags} platformTags={engagementTags} platformInputValue={engagementInputValue} setPlatformInputValue={setEngagementInputValue} />
+                                        <Chips labelled={"type"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setTypeTags} platformTags={typeTags} platformInputValue={typeInputValue} setPlatformInputValue={setTypeInputValue} />
                                         <div className="col-12">
-                                            <div className="form-floating my-3">
-                                                <select
+                                            <div className="form-check my-3">
+                                                <input type="checkbox"
                                                     onChange={handleChange}
-                                                    className="form-control"
-                                                    id="gender"
-                                                    name="gender"
-                                                    value={values.gender}
-                                                >
-                                                    <option value="">Select gender</option>
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
-                                                </select>
-                                                <label htmlFor="gender">Gender</label>
-                                                <ErrorMessage component="small" name="gender" className="text-danger" />
+                                                    className="form-check-input"
+                                                    id="doubleChecked"
+                                                    name="doubleChecked"
+                                                    checked={values.doubleChecked} />
+                                                <label htmlFor="doubleChecked" className="form-check-label">Double checked</label>
+                                                <ErrorMessage component="small" name="doubleChecked" className="text-danger" />
                                             </div>
                                         </div>
                                     </div>
 
-                                    <Chips labelled={"location"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setLocationTags} platformTags={locationTags} platformInputValue={locationInputValue} setPlatformInputValue={setLocationInputValue} />
-                                    <Chips labelled={"platform"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setPlatformTags} platformTags={platformTags} platformInputValue={platformInputValue} setPlatformInputValue={setPlatformInputValue} />
-
-                                    <Chips labelled={"profession"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setProfessionTags} platformTags={professionTags} platformInputValue={professionInputValue} setPlatformInputValue={setProfessionInputValue} />
-                                    <Chips labelled={"category"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setCategoryTags} platformTags={categoryTags} platformInputValue={categoryInputValue} setPlatformInputValue={setCategoryInputValue} />
-
-                                    <Chips labelled={"like"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setLikeTags} platformTags={likeTags} platformInputValue={likeInputValue} setPlatformInputValue={setLikeInputValue} />
-                                    <Chips labelled={"comment"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setCommentTags} platformTags={commentTags} platformInputValue={commentInputValue} setPlatformInputValue={setCommentInputValue} />
-                                    <Chips labelled={"share"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setShareTags} platformTags={shareTags} platformInputValue={shareInputValue} setPlatformInputValue={setShareInputValue} />
-
-                                    <Chips labelled={"engagement"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setEngagementTags} platformTags={engagementTags} platformInputValue={engagementInputValue} setPlatformInputValue={setEngagementInputValue} />
-                                    <Chips labelled={"type"} errors={errors} touched={touched} setFieldValue={setFieldValue} setPlatformTags={setTypeTags} platformTags={typeTags} platformInputValue={typeInputValue} setPlatformInputValue={setTypeInputValue} />
-                                    <div className="col-12">
-                                        <div className="form-check my-3">
-                                            <input type="checkbox"
-                                                onChange={handleChange}
-                                                className="form-check-input"
-                                                id="doubleChecked"
-                                                name="doubleChecked"
-                                                checked={values.doubleChecked} />
-                                            <label htmlFor="doubleChecked" className="form-check-label">Double checked</label>
-                                            <ErrorMessage component="small" name="doubleChecked" className="text-danger" />
-                                        </div>
-                                    </div>
-                                    <div className="d-flex flex-row-reverse mb-3 me-2">
+                                    <div className="d-flex flex-row-reverse my-3 me-2">
                                         <button type="submit" className="btn btn-primary">
                                             Apply&nbsp;filter
                                         </button>
